@@ -1,7 +1,9 @@
 ### Overview
 
 This is a set of scripts and configurations to succesfully install and boot
-Windows 7 from GPT-partitioned drive on a system with BIOS.
+Windows 7 (and up, probably) from GPT-partitioned drive on a system with BIOS.
+This may be convenient if you benefit from GPT features such as partition
+labeling, unique GUIDs and raised partition count/size limits.
 
 Windows does not permit this by default, the solution is to create a small
 MBR-partitioned virtual drive and place boot-related files to it, so that
@@ -17,13 +19,13 @@ Setup can be accomplished in the following way:
 
 1. Partition your hard drive with GPT using any external tool available. For
   example, using GNU parted this may be like the following:
-```
-(parted) mklabel gpt
-(parted) mkpart primary 0% 10MB
-(parted) mkpart primary ext4 10MB 210MB
-(parted) mkpart primary ntfs 210MB 100%
-(parted) set 1 bios_grub on
-```
+  ```
+  (parted) mklabel gpt
+  (parted) mkpart primary 0% 10MB
+  (parted) mkpart primary ext4 10MB 210MB
+  (parted) mkpart primary ntfs 210MB 100%
+  (parted) set 1 bios_grub on
+  ```
   This will create small 10MB primary partition at the very beginning with flag
   necessary to install GRUB into GPT drive, and also 200MB ext4 partition
   where GRUB root directory will reside.
@@ -112,3 +114,5 @@ X:\> imagex /apply D:\sources\install.wim 1 c:
   https://support.microsoft.com/en-us/kb/137890
 4. An article about building Custom Windows PE Image:
   https://technet.microsoft.com/en-us/library/cc709665(v=ws.10).aspx
+5. GNU Parted: http://www.gnu.org/software/parted/
+6. GNU GRUB: https://www.gnu.org/software/grub/
