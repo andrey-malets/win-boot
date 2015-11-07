@@ -30,8 +30,8 @@ Setup can be accomplished in the following way:
   necessary to install GRUB into GPT drive, and also 200MB ext4 partition
   where GRUB root directory will reside.
 
-  Also we create third NTFS partition for Windows which snaps to the end of the
-  drive.
+  Also here we create third NTFS partition for Windows which spans to the end
+  of the drive (change this for your needs).
 
 2. Format and mount your GRUB root partition.
 
