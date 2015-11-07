@@ -46,18 +46,18 @@ Setup can be accomplished in the following way:
 
 6. Format third partition of your hard drive, for example using DiskPart
   (assuming disk #0 is your hard drive):
-```
-DISKPART> select disk 0
-DISKPART> select partition 3
-DISKPART> format label="Windows 7" quick
-DISKPART> assign letter=c
-```
+  ```
+  DISKPART> select disk 0
+  DISKPART> select partition 3
+  DISKPART> format label="Windows 7" quick
+  DISKPART> assign letter=c
+  ```
 
 7. Install Windows using ImageX (be careful with the letter of your CD/DVD
   here, this assumes D: is your Windows setup DVD):
-```
-X:\> imagex /apply D:\sources\install.wim 1 c:
-```
+  ```
+  X:\> imagex /apply D:\sources\install.wim 1 c:
+  ```
 
 8. Copy [`boot/`](boot/) directory from this repository to C:\boot (for example
   using Samba share).
@@ -70,9 +70,9 @@ X:\> imagex /apply D:\sources\install.wim 1 c:
   **before** Windows starts to specialize BCD which is located on the VHD.
   To do this, wait until "Windows is installing devices" message appears and
   then press `Shift+F10` to get command prompt window. Then type this:
-```
-> C:\boot\mount.cmd
-```
+  ```
+  > C:\boot\mount.cmd
+  ```
   This may take some time as the script waits until the drive actually appears
   as a volume, and keeps trying to assign it for 10 minutes.
 
