@@ -100,7 +100,7 @@ Setup can be accomplished in the following way:
 
 12. Optionally you may wish to hide drive B: from the Explorer window as there
   is little benefit from it there. Simply merge [`hide.reg`](boot/hide.reg)
-  into the registry and reboot (probably relogin will sufficient).
+  into the registry and reboot (probably relogin will be sufficient).
 
 
 ### Thanks and references
