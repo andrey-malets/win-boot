@@ -1,0 +1,6 @@
+create vdisk file=c:\boot\bootmgr.vhd maximum=32 type=fixed
+attach vdisk
+create partition primary offset=1024
+active
+format label=bootmgr quick
+assign letter=b

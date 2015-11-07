@@ -1,0 +1,4 @@
+select vdisk file=c:\boot\bootmgr.vhd
+select partition 1
+remove letter=b noerr
+detach vdisk

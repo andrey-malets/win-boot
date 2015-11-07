@@ -1,0 +1,3 @@
+select vdisk file=c:\boot\bootmgr.vhd
+select partition 1
+assign letter=b

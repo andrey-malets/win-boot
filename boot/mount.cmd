@@ -1,0 +1,1 @@
+wscript c:\boot\mount.vbs

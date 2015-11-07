@@ -1,0 +1,1 @@
+diskpart /s c:\boot\unmount.txt

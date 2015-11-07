@@ -1,0 +1,2 @@
+select vdisk file=c:\boot\bootmgr.vhd
+attach vdisk
