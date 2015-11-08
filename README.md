@@ -105,7 +105,7 @@ Setup can be accomplished in the following way:
 
 ### Thanks and references
 
-1. Big thanks to **wzyboy** and his original post about boot vrom VHD drive
+1. Big thanks to **wzyboy** and his original post about boot from VHD drive
   on reboot.pro (in English: http://reboot.pro/topic/19516-hack-bootmgr-to-boot-windows-in-bios-to-gpt/page-2#entry184489)
   which gives the base idea of booting Windows from VHD with GRUB.
   90% of this code was written using his instructions.
