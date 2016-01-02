@@ -1,1 +1,1 @@
-wscript c:\boot\mount.vbs
+cscript /nologo c:\boot\mount.vbs >> c:\boot\mount.log
