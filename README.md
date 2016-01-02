@@ -74,7 +74,9 @@ Setup can be accomplished in the following way:
   > C:\boot\mount.cmd
   ```
   This may take some time as the script waits until the drive actually appears
-  as a volume, and keeps trying to assign it for 10 minutes.
+  as a volume, and keeps trying to assign it for 10 minutes. You can check
+  if everything went right by reading `C:\boot\mount.log` after installation
+  (and after every boot).
 
   If you get this message: "Windows Setup could not configure Windows to run
   on this computer's hardware", then probably you did this too late and you
