@@ -1,7 +1,7 @@
 ### Overview
 
 This is a set of scripts and configurations to succesfully install and boot
-Windows 7 (and up, probably) from GPT-partitioned drive on a system with BIOS.
+Windows 7 and 10 from GPT-partitioned drive on a system with BIOS.
 This may be convenient if you benefit from GPT features such as partition
 labeling, unique GUIDs and raised partition count/size limits.
 
