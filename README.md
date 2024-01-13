@@ -105,6 +105,53 @@ Setup can be accomplished in the following way:
   into the registry and reboot (probably relogin will be sufficient).
 
 
+### Installing updates
+
+Once in a while Windows installs updates that, presumably, need to modlfy data
+on a boot partition. These updates go through reboot and run at early stages of
+system boot, where VHD mount service is not activated yet. As a result, such
+updates may fail to install.
+
+You may temporarily move boot partition from a VHD inside of Windows machine to
+separate physical (or virtual, in case where Windows runs inside a VM) drive,
+proceed with update installation, and then move boot drive back to VHD inside
+Windows. Follow there steps:
+
+1. Stop and disable `bootmgr` service, this can be done from command line with
+   administrative privileges:
+  ```
+  > sc stop bootmgr
+  > sc config bootmgr start= disabled
+  ```
+2. Unmount boot VHD:
+  ```
+  > C:\boot\unmount.cmd
+  ```
+3. Copy `C:\boot\bootmgr.vhd` file to some other machine.
+4. Convert `bootmgr.vhd` from VHD to RAW format, this can be done with
+   `qemu-img convert`:
+  ```
+  $ qemu-img convert -f vpc -O raw bootmgr.vhd bootmgr.raw
+  ```
+5. Write `bootmgr.raw` to separate physical or virtual disk and attach this
+   disk to Windows machine (either VM or physical).
+6. Shutdown Windows machine and make a backup.
+7. Attach the disk obtained from step 5 to Windows machine and boot from it.
+   You should see boot drive as a separate physical disk in a running Windows
+   (use Disk Management utility since the drive may be hidden), and updates
+   should install normally.
+8. After installing updates, re-create boot VHD by executing
+  ```
+  > C:\boot\create.cmd
+  ```
+9. Enable `bootmgr` service back:
+  ```
+  > sc config bootmgr start= auto
+  ```
+10. Shutdown Windows machine, detach physical or virtual boot disk and start it
+    back from primary drive.
+
+
 ### Thanks and references
 
 1. Big thanks to **wzyboy** and his original post about boot from VHD drive
