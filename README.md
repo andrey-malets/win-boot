@@ -133,6 +133,12 @@ Windows. Follow there steps:
   ```
   $ qemu-img convert -f vpc -O raw bootmgr.vhd bootmgr.raw
   ```
+  **Note**: if you see errors from `qemu-img convert`, check that
+  `bootmgr.vhd` was properly copied from Windows machine. Native Windows SSH
+  server implementation seems to work erroneously with OpenSSH's `scp`,
+  transferring only part of the file. In that case, use an alternative method
+  to transfer `bootmgr.vhd`.
+
 5. Write `bootmgr.raw` to separate physical or virtual disk and attach this
    disk to Windows machine (either VM or physical).
 6. Shutdown Windows machine and make a backup.
